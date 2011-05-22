@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS eventfinder;
+GRANT ALL PRIVILEGES ON eventfinder.* TO 'eventfinder'@'localhost' IDENTIFIED BY 'secret' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON eventfinder.* TO 'eventfinder'@'%' IDENTIFIED BY 'secret' WITH GRANT OPTION;
+
+CREATE DATABASE IF NOT EXISTS eftest;
+GRANT ALL PRIVILEGES ON eftest.* TO 'eftest'@'localhost' IDENTIFIED BY 'secret' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON eftest.* TO 'eftest'@'%' IDENTIFIED BY 'secret' WITH GRANT OPTION;

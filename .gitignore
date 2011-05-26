@@ -1,2 +1,5 @@
 /target/
 /.com.apple.timemachine.supported
+/*.iws
+/eventfinder.iml
+/eventfinder.ipr

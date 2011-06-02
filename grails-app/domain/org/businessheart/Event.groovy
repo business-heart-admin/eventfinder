@@ -1,7 +1,6 @@
 package org.businessheart
 
 import java.util.Date
-//import java.util.Formatter.DateTime
 
 class Event {
 
@@ -11,8 +10,10 @@ class Event {
 	Trainer trainer
 	Date startTime
 	Date endTime
-	String categories
-	String comments
+	String keywords
+	String level
+	String trainerComments
+	String studentComments
 	byte[] attachment
 	Date dateCreated
 	Date lastUpdated
@@ -24,8 +25,10 @@ class Event {
 		trainer(nullable:false)
 		startTime(nullable:false,scale:5)
 		endTime(nullable:false,scale:3)
-		categories(blank:true)
-		comments(blank:true,maxsize:4000,widget:"textarea")
+		keywords(blank:true)
+		level(inList:["beginner","intermediate","advanced"])
+		trainerComments(blank:true,maxsize:4000,widget:"textarea")
+		studentComments(blank:true,maxsize:4000,widget:"textarea")
 		attachment(nullable:true,maxSize:1073741824,display:false)//4 GB
 		}
 }

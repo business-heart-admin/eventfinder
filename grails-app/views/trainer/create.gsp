@@ -129,6 +129,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="website"><g:message code="trainer.website.label" default="Website" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: trainerInstance, field: 'website', 'errors')}">
+                                    <g:textField name="website" value="${trainerInstance?.website}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="certifications"><g:message code="trainer.certifications.label" default="Certifications" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: trainerInstance, field: 'certifications', 'errors')}">
@@ -147,10 +156,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="categories"><g:message code="trainer.categories.label" default="Categories" /></label>
+                                    <label for="keywords"><g:message code="trainer.keywords.label" default="Keywords" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: trainerInstance, field: 'categories', 'errors')}">
-                                    <g:textField name="categories" value="${trainerInstance?.categories}" />
+                                <td valign="top" class="value ${hasErrors(bean: trainerInstance, field: 'keywords', 'errors')}">
+                                    <g:textField name="keywords" value="${trainerInstance?.keywords}" />
                                 </td>
                             </tr>
                         

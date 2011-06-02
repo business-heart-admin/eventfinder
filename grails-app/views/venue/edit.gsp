@@ -96,10 +96,37 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="comments"><g:message code="venue.comments.label" default="Comments" /></label>
+                                  <label for="phone"><g:message code="venue.phone.label" default="Phone" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: venueInstance, field: 'comments', 'errors')}">
-                                    <g:textArea name="comments" cols="40" rows="5" value="${venueInstance?.comments}" />
+                                <td valign="top" class="value ${hasErrors(bean: venueInstance, field: 'phone', 'errors')}">
+                                    <g:textField name="phone" value="${venueInstance?.phone}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="capacity"><g:message code="venue.capacity.label" default="Capacity" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: venueInstance, field: 'capacity', 'errors')}">
+                                    <g:textField name="capacity" value="${fieldValue(bean: venueInstance, field: 'capacity')}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="trainerComments"><g:message code="venue.trainerComments.label" default="Trainer Comments" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: venueInstance, field: 'trainerComments', 'errors')}">
+                                    <g:textArea name="trainerComments" cols="40" rows="5" value="${venueInstance?.trainerComments}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="studentComments"><g:message code="venue.studentComments.label" default="Student Comments" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: venueInstance, field: 'studentComments', 'errors')}">
+                                    <g:textArea name="studentComments" cols="40" rows="5" value="${venueInstance?.studentComments}" />
                                 </td>
                             </tr>
                         

@@ -42,26 +42,11 @@
                             <td valign="top" class="value">${fieldValue(bean: trainerInstance, field: "email")}</td>
                             
                         </tr>
-                        
-                        <tr class="prop">
-                            <td valign="top" class="name">Your current Gravatar: </td>
-                            
-                            <td valign="top" class="value"><avatar:gravatar email="${trainerInstance.email}" size="60"/></td>
-                            
-                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="trainer.displayGravatar.label" default="Display Gravatar" /></td>
                             
-                            <td valign="top" class="value">${trainerInstance?.displayGravatar?'Yes':'No'}</td>
-                            
-                        </tr>
-                        
-                         <tr class="prop">
-
-                            <td valign="top" class="name">Don't have a Gravatar? </td>
-                            
-                            <td valign="top" class="value">Click Here: <A href="http://gravatar.com">gravatar.com</A></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${trainerInstance?.displayGravatar}" /></td>
                             
                         </tr>
                     
@@ -122,6 +107,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="trainer.website.label" default="Website" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: trainerInstance, field: "website")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="trainer.certifications.label" default="Certifications" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: trainerInstance, field: "certifications")}</td>
@@ -136,9 +128,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="trainer.categories.label" default="Categories" /></td>
+                            <td valign="top" class="name"><g:message code="trainer.keywords.label" default="Keywords" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: trainerInstance, field: "categories")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: trainerInstance, field: "keywords")}</td>
                             
                         </tr>
                     

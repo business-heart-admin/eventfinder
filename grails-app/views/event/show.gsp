@@ -65,16 +65,30 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="event.categories.label" default="Categories" /></td>
+                            <td valign="top" class="name"><g:message code="event.keywords.label" default="Keywords" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: eventInstance, field: "categories")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: eventInstance, field: "keywords")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="event.comments.label" default="Comments" /></td>
+                            <td valign="top" class="name"><g:message code="event.level.label" default="Level" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: eventInstance, field: "comments")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: eventInstance, field: "level")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="event.trainerComments.label" default="Trainer Comments" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: eventInstance, field: "trainerComments")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="event.studentComments.label" default="Student Comments" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: eventInstance, field: "studentComments")}</td>
                             
                         </tr>
                     

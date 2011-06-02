@@ -78,19 +78,37 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="categories"><g:message code="event.categories.label" default="Categories" /></label>
+                                  <label for="keywords"><g:message code="event.keywords.label" default="Keywords" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'categories', 'errors')}">
-                                    <g:textField name="categories" value="${eventInstance?.categories}" />
+                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'keywords', 'errors')}">
+                                    <g:textField name="keywords" value="${eventInstance?.keywords}" />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="comments"><g:message code="event.comments.label" default="Comments" /></label>
+                                  <label for="level"><g:message code="event.level.label" default="Level" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'comments', 'errors')}">
-                                    <g:textArea name="comments" cols="40" rows="5" value="${eventInstance?.comments}" />
+                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'level', 'errors')}">
+                                    <g:select name="level" from="${eventInstance.constraints.level.inList}" value="${eventInstance?.level}" valueMessagePrefix="event.level"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="trainerComments"><g:message code="event.trainerComments.label" default="Trainer Comments" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'trainerComments', 'errors')}">
+                                    <g:textArea name="trainerComments" cols="40" rows="5" value="${eventInstance?.trainerComments}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="studentComments"><g:message code="event.studentComments.label" default="Student Comments" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'studentComments', 'errors')}">
+                                    <g:textArea name="studentComments" cols="40" rows="5" value="${eventInstance?.studentComments}" />
                                 </td>
                             </tr>
                         

@@ -1,7 +1,6 @@
 package org.businessheart
 
 import java.util.Date
-//import java.util.Formatter.DateTime
 
 class Event {
 

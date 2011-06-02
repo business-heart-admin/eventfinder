@@ -79,9 +79,30 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="venue.comments.label" default="Comments" /></td>
+                            <td valign="top" class="name"><g:message code="venue.phone.label" default="Phone" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: venueInstance, field: "comments")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: venueInstance, field: "phone")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="venue.capacity.label" default="Capacity" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: venueInstance, field: "capacity")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="venue.trainerComments.label" default="Trainer Comments" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: venueInstance, field: "trainerComments")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="venue.studentComments.label" default="Student Comments" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: venueInstance, field: "studentComments")}</td>
                             
                         </tr>
                     

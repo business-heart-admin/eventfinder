@@ -27,6 +27,8 @@
                             <g:sortableColumn property="name" title="${message(code: 'trainer.name.label', default: 'Name')}" />
                         
                             <g:sortableColumn property="email" title="${message(code: 'trainer.email.label', default: 'Email')}" />
+                            
+                            <g:sortableColumn property="displayGravatar" title="Current Gravatar"/>
                         
                             <g:sortableColumn property="displayGravatar" title="${message(code: 'trainer.displayGravatar.label', default: 'Display Gravatar')}" />
                         
@@ -45,6 +47,8 @@
                             <td>${fieldValue(bean: trainerInstance, field: "name")}</td>
                         
                             <td>${fieldValue(bean: trainerInstance, field: "email")}</td>
+                            
+                            <td><avatar:gravatar email="${trainerInstance.email}" size="60"/></td>
                         
                             <td><g:formatBoolean boolean="${trainerInstance.displayGravatar}" /></td>
                         

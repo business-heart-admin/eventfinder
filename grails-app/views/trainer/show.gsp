@@ -42,11 +42,26 @@
                             <td valign="top" class="value">${fieldValue(bean: trainerInstance, field: "email")}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name">Your current Gravatar: </td>
+                            
+                            <td valign="top" class="value"><avatar:gravatar email="${trainerInstance.email}" size="60"/></td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="trainer.displayGravatar.label" default="Display Gravatar" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${trainerInstance?.displayGravatar}" /></td>
+                            <td valign="top" class="value">${trainerInstance?.displayGravatar?'Yes':'No'}</td>
+                            
+                        </tr>
+                        
+                         <tr class="prop">
+
+                            <td valign="top" class="name">Don't have a Gravatar? </td>
+                            
+                            <td valign="top" class="value">Click Here: <A href="http://gravatar.com">gravatar.com</A></td>
                             
                         </tr>
                     

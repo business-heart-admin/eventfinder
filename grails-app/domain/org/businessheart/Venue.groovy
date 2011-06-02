@@ -6,11 +6,14 @@ class Venue {
 	String name
 	String address1
 	String address2
-	String city
+	String city 
 	String state
 	String country = "USA"
 	String zip
-	String comments
+	String phone
+	Integer capacity
+	String trainerComments
+	String studentComments
 	Date dateCreated
 	Date lastUpdated
 	
@@ -23,7 +26,10 @@ class Venue {
 		state(blank:false)
 		country(blank:false)
 		zip(blank:true)
-		comments(blank:true,maxSize:4000,widget:"textarea")
+		phone(blank:true)
+		capacity(nullable:true)
+		trainerComments(blank:true,maxSize:4000,widget:"textarea")
+		studentComments(blank:true,maxSize:4000,widget:"textarea")
 	}
 	
 }

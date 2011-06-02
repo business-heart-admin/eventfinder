@@ -54,7 +54,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="trainer.displayGravatar.label" default="Display Gravatar" /></td>
                            
-                            <td valign="top" class="value">${trainerInstance?.displayGravatar?'Yes':'No'}</td>
+                            <td valign="top" class="value">${trainerInstance.displayGravatar?'Yes':'No'}</td>
                             
                         </tr>
                         

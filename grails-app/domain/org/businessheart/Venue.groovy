@@ -6,7 +6,7 @@ class Venue {
 	String name
 	String address1
 	String address2
-	String city
+	String city 
 	String state
 	String country = "USA"
 	String zip

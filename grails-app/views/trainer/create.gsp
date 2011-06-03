@@ -44,9 +44,11 @@
                                 <td valign="top" class="value ${hasErrors(bean: trainerInstance, field: 'email', 'errors')}">
                                     <g:textField name="email" value="${trainerInstance?.email}" />
                                 </td>
-                            </tr>
+                            </tr><%--
+                                                         
+                            
                         
-                            <tr class="prop">
+                            --%><tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="displayGravatar"><g:message code="trainer.displayGravatar.label" default="Display Gravatar" /></label>
                                 </td>
@@ -54,6 +56,16 @@
                                     <g:checkBox name="displayGravatar" value="${trainerInstance?.displayGravatar}" />
                                 </td>
                             </tr>
+                            
+                            
+                            <tr class="prop">
+                         
+                            <td valign="top" class="name">Don't have a Gravatar? </td>
+                            <td valign="top" class="value" >Click Here: <a href="http://gravatar.com"><p style="color:blue;">gravatar.com</p></a>
+                            
+                            </td>
+                        </tr>
+                        
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

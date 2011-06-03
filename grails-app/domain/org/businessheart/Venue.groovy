@@ -10,7 +10,8 @@ class Venue {
 	String state
 	String country = "USA"
 	String zip
-	String phone
+	String contactName
+	String contactPhone
 	Integer capacity
 	String trainerComments
 	String studentComments
@@ -26,7 +27,8 @@ class Venue {
 		state(blank:false)
 		country(blank:false)
 		zip(blank:true)
-		phone(blank:true)
+		contactName(blank:true)
+		contactPhone(blank:true)
 		capacity(nullable:true)
 		trainerComments(blank:true,maxSize:4000,widget:"textarea")
 		studentComments(blank:true,maxSize:4000,widget:"textarea")

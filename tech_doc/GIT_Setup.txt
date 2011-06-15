@@ -1,0 +1,49 @@
+=============================================================================
+Version Control Configuration Info for...                         EventFinder
+=============================================================================
+3-Jun-2011 CLJ
+
+We have a master GIT repository on GitHub.  It's located at
+
+    git@github.com:business-heart-admin/eventfinder.git
+
+In order to use it, you need to do the following:
+
+1. Sign up for a GitHub account if you don't already have one.
+
+	Go here: https://github.com/
+
+2. Establish an SSH keypair that will authenticate your computer(s) (i.e. any
+   computer you control) with GitHub, if you haven't already.
+
+	Follow these instructions to generate an SSH keypair:
+
+	    http://help.github.com/set-up-git-redirect
+
+	Go here to upload your SSH public key: https://github.com/account/ssh
+
+3. Configure your local GIT settings to use your GitHub API token
+
+	Continue to follow the instructions on http://help.github.com/set-up-git-redirect
+	to configure your API token.
+
+4. (Optional) If you are on Windows, install TortoiseGit
+
+    4a. Download TortoiseGit
+    4b. Download puttygen.exe
+    4c. Run puttygen.exe to convert your id_rsa file to PPK format (as id_rsa.ppk)
+    4d. Set the TortoiseGit settings to point to the id_rsa.ppk file.
+
+5. Link your local GIT repository to the (new) master.
+
+	cd C:\Work\eeventfinder 	(or wherever your working folder is)
+	git remote add origin git@github.com:business-heart-admin/eventfinder.git
+
+6. PULL the latest changes.
+
+	git pull -u origin master	(Or, go through the Eclipse interface.)
+
+7. PUSH any changes that you committed locally.
+
+	git push -u origin master	(Or, go through the Eclipse interface.)
+

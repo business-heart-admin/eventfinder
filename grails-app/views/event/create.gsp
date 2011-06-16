@@ -25,9 +25,9 @@
                 <g:renderDomain domain="${Event.class}" 
                                 template="editor" 
                                 value="${eventInstance}" 
+                                order="['name', 'description', 'venue', 'trainer', 'startTime', 'endTime', 'keywords', 'level', 'trainerComments', 'studentComments', 'attachment']"
                                 except="['id']"
                                 exceptWhen="${ { prop -> prop.type == Set.class } }"
-                                order="['firstName', 'lastName', 'email', 'displayGravatar', 'phone', 'address1', 'address2', 'city', 'state', 'country', 'zip', 'organization', 'website', 'certifications', 'active', 'keywords', 'comments', 'dateCreated', 'lastUpdated']"
                                 style="[actions:[[save: 'Create']] ]" />
             </g:form>
         </div>

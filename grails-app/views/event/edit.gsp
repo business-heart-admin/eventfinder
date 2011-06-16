@@ -24,7 +24,8 @@
             <g:form method="post"  enctype="multipart/form-data">
                 <g:renderDomain domain="${Event.class}" 
                                 template="editor" 
-                                value="${eventInstance}" 
+                                value="${eventInstance}"
+order="['name', 'description', 'venue', 'trainer', 'startTime', 'endTime', 'keywords', 'level', 'trainerComments', 'studentComments', 'attachment']"
                                 style="[id: [readonly: true], actions:[[update: 'Update'], [delete: 'Delete']] ]" />
             </g:form>
         </div>

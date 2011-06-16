@@ -20,6 +20,7 @@
             <g:renderDomain domain="${Event.class}" 
                             template="list" 
                             value="${eventInstanceList}" 
+                            order="['name', 'description', 'venue', 'trainer', 'startTime', 'endTime', 'keywords', 'level', 'trainerComments', 'studentComments', 'attachment']"
                             exceptWhen="${ { prop -> prop.type == Set.class } }"
                             style="[actions:[[show:'Show'], [edit: 'Edit']] ]" />
             <div class="paginateButtons">

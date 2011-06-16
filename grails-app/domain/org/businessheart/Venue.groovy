@@ -34,4 +34,9 @@ class Venue {
 		studentComments(blank:true,maxSize:4000,widget:"textarea")
 	}
 	
+	String toString(){
+		return name;
+	}
+	
 }
+

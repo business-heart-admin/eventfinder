@@ -20,6 +20,7 @@
                 <g:renderDomain domain="${Trainer.class}"
                                 template="show"
                                 value="${trainerInstance}"
+                                order="['firstName' , 'lastName' , 'email' , 'displayGravatar' , 'phone' , 'address1' , 'address2' , 'city' , 'state' , 'country' , 'zip' , 'organization' , 'website' ,'certifications' , 'active' , 'keywords' , 'comments' ]"
                                 style="[actions:[[edit: 'Edit'], [delete: 'Delete']] ]"/>
             </g:if>
         </div>

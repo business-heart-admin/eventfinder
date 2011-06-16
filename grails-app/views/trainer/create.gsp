@@ -25,9 +25,10 @@
                 <g:renderDomain domain="${Trainer.class}"
                                 template="editor"
                                 value="${trainerInstance}"
+                                order="['firstName' , 'lastName' , 'email' , 'displayGravatar' , 'phone' , 'address1' , 'address2' , 'city' , 'state' , 'country' , 'zip' , 'organization' , 'website' ,'certifications' , 'active' , 'keywords' , 'comments' ]"
                                 except="['id']"
                                 exceptWhen="${ { prop -> prop.type == Set.class } }"
-                                style="[actions:[[create: 'Create']] ]" />
+                                style="[actions:[[save: 'Create']] ]" />
             </g:form>
         </div>
     </body>

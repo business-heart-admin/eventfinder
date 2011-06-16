@@ -10,9 +10,8 @@
         <div class="page">
             <div class="pageinner">
                 <div class="header">
-                    <h1 class="logo">No Images Skin</h1>
-                    <span class="skinDescription">A skin using only HTML and CSS 
-                    (except for the Grails 'powered-by' image at the bottom)</span>
+                    <h1 class="logo">Event Finder</h1>
+                    <span class="skinDescription">Connecting experienced Agilists with anyone who wants to learn.</span>
                 </div>
                 <div class="nav">
                     <span class="menuButton"><a href="${createLinkTo(dir:'')}">Home</a></span>
@@ -21,8 +20,10 @@
                     </g:each>
                 </div>
         		<g:layoutBody />
-                <div class="signature">Powered by <a href="http://grails.org"><img class="signatureButton" src="${createLinkTo(dir:'images',file:'grails_logo.jpg')}" alt="Grails" /></a></div> 
+                <div class="signature">Powered by <a href="http://grails.org"><img class="signatureButton" src="${createLinkTo(dir:'images',file:'grails_logo.jpg')}" alt="Grails" /></a></div>
             </div>
+
         </div>
-	</body>	
+        <g:render template="/layouts/footer"/>
+	</body>
 </html>

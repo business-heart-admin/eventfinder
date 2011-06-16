@@ -69,11 +69,39 @@ Programming Maintenance
 ------------------------------------
 The Stack
 ------------------------------------
-Grails plugins: Mail, Avatar, Scaffold-Tags
 Grails 1.3.7
 Tomcat 6
 MySQL 5
 Apache 2
+
+------------------------------------
+Grails plugins (alphabetical)
+------------------------------------
+Avatar          - A simple wrapper around the Gravatar API
+                - Docs: http://grails.org/plugin/avatar
+
+Hibernate       - (required by Grails)
+
+Mail            - Wrapper around the java libraries for sending out e-mails
+                - Docs: http://grails.org/plugin/mail
+
+Nimble          - (Not Yet) Manages User profiles, roles, permissions, etc.
+                - Authenticate via Local Account, OpenID, LDAP, Facebook
+                - (Depends on Mail, Shiro)
+                - Docs: http://sites.google.com/site/nimbledoc/
+
+Scaffold-Tags   - Dynamically builds web pages based according to field type
+                - Docs: http://grails.org/plugin/scaffold-tags
+                        http://grails.snowmochi.com/grails/scaffoldtags
+
+Searchable      - (Not Yet) Wrapper around the Apache Lucene libraries for full-text searching
+                - Docs: http://grails.org/plugin/searchable
+
+Shiro           - (Not Yet) Wrapper around the Apache Shiro security framework
+                - Docs: http://grails.org/plugin/shiro
+
+Tomcat          - (required by Grails)
+
 
 ------------------------------------
 LINUX SERVERS

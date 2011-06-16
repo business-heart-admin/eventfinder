@@ -20,6 +20,7 @@
                 <g:renderDomain domain="${Venue.class}" 
                                 template="show" 
                                 value="${venueInstance}" 
+                                order="['name' , 'address1' , 'address2' , 'city' , 'state' , 'country' , 'zip' , 'contactName' , 'contactPhone' ,'capacity' , 'trainerComments' , 'studentComments' ]"
                                 style="[actions:[[edit: 'Edit'], [delete: 'Delete']] ]"/>
             </g:if>
         </div>

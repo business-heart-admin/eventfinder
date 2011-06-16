@@ -21,6 +21,7 @@
                             template="list"
                             value="${trainerInstanceList}"
                             exceptWhen="${ { prop -> prop.type == Set.class } }"
+                            order="['firstName' , 'lastName' , 'email' , 'displayGravatar' , 'phone' , 'address1' , 'address2' , 'city' , 'state' , 'country' , 'zip' , 'organization' , 'website' ,'certifications' , 'active' , 'keywords' , 'comments' ]"
                             style="[actions:[[show:'Show'], [edit: 'Edit']] ]" />
             <div class="paginateButtons">
                 <g:paginate total="${Trainer.count()}" />

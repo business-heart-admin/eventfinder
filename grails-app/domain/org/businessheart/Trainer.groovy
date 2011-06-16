@@ -1,7 +1,8 @@
 package org.businessheart
 
 class Trainer {
-	String name
+	String firstName
+	String lastName
 	String email
 	Boolean displayGravatar
 	String phone
@@ -21,7 +22,8 @@ class Trainer {
 	Date lastUpdated
 
 	static constraints = {
-		name(blank:false,unique:true,minSize:3)
+		firstName(blank:false,unique:true,minSize:3)
+		lastName(blank:false,unique:true,minSize:3)
 		email(blank:false,email:true,unique:true)
 		displayGravatar(nullable:false)
 		phone(blank:false)

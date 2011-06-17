@@ -20,6 +20,7 @@
                 <g:renderDomain domain="${Event.class}" 
                                 template="show" 
                                 value="${eventInstance}" 
+                                order="['name', 'description', 'venue', 'trainer', 'startTime', 'endTime', 'keywords', 'level', 'trainerComments', 'studentComments', 'attachment']"
                                 style="[actions:[[edit: 'Edit'], [delete: 'Delete']] ]"/>
             </g:if>
         </div>

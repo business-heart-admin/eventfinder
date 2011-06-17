@@ -40,5 +40,10 @@ class Trainer {
 		keywords(blank:true)
 		comments(blank:true,maxSize:4000,widget:"textarea")
 
-}
+	}
+	
+	String toString(){
+		return firstName + " " + lastName;
+	}
+	
 }

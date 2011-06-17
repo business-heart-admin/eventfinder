@@ -20,13 +20,13 @@ class Event {
 	
 	
 	static constraints={
-		name(blank:false,unique:true,minsize:3)
+		name(blank:false,minsize:3)
 		venue(nullable:false)
 		trainer(nullable:false)
 		startTime(nullable:false,scale:5)
 		endTime(nullable:false,scale:3)
 		keywords(blank:true)
-		level(inList:["beginner","intermediate","advanced"])
+		level(inList:["Beginner","Intermediate","Advanced"])
 		trainerComments(blank:true,maxsize:4000,widget:"textarea")
 		studentComments(blank:true,maxsize:4000,widget:"textarea")
 		attachment(nullable:true,maxSize:1073741824,display:false)//4 GB

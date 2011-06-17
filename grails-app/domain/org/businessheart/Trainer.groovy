@@ -22,8 +22,8 @@ class Trainer {
 	Date lastUpdated
 
 	static constraints = {
-		firstName(blank:false,unique:true,minSize:3)
-		lastName(blank:false,unique:true,minSize:3)
+		firstName(blank:false,minSize:3)
+		lastName(blank:false,minSize:3)
 		email(blank:false,email:true,unique:true)
 		displayGravatar(nullable:false)
 		phone(blank:false)
@@ -43,7 +43,7 @@ class Trainer {
 	}
 	
 	String toString(){
-		return firstName + " " + lastName;
+		return lastName + ", " + firstName + " (" + email + ")";
 	}
 	
 }

@@ -27,7 +27,7 @@ class Venue {
 		state(blank:false)
 		country(blank:false)
 		zip(blank:true)
-		contactName(blank:false,unique:true,minSize:3)
+		contactName(blank:true)
 		contactPhone(blank:true)
 		capacity(nullable:true)
 		trainerComments(blank:true,maxSize:4000,widget:"textarea")

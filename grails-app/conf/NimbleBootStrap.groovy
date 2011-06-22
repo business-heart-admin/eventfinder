@@ -26,6 +26,7 @@ import grails.plugins.nimble.core.AdminsService
 import grails.plugins.nimble.core.UserService
 import org.businessheart.AppUser
 import org.businessheart.AppProfile
+import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
 
 /*
  * Allows applications using Nimble to undertake process at BootStrap that are related to Nimbe provided objects
@@ -50,12 +51,16 @@ class NimbleBootStrap {
 		// Execute any custom Nimble related BootStrap for your application below
 
 		// Create example User account
+		
+				
+		def passwordText = CH.config.nimble.passwords.mustcontain.uppercase?"!11fdsa3jfaAdsfG8l;J":"secret"
+		
 		def user = AppUser.findByUsername("user")
 		if(!user){
 			user = InstanceGenerator.user()
 			user.username = "user"
-			user.pass = 'secret'
-			user.passConfirm = 'secret'
+			user.pass = passwordText
+			user.passConfirm = passwordText
 			user.enabled = true
 
 			def userProfile = InstanceGenerator.profile()
@@ -77,13 +82,13 @@ class NimbleBootStrap {
 
 		def admins = Role.findByName(AdminsService.ADMIN_ROLE)
 
-
-		def admin = AppUser.findByUsername("admin")
+			def admin = AppUser.findByUsername("admin")
 		if(!admin){
 			admin = InstanceGenerator.user()
 			admin.username = "admin"
-			admin.pass = "secret"
-			admin.passConfirm = "secret"
+		
+			admin.pass = passwordText
+			admin.passConfirm = passwordText
 			admin.enabled = true
 
 			def adminProfile = InstanceGenerator.profile()

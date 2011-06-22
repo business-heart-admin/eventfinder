@@ -17,7 +17,7 @@ environments {
 			driverClassName = 'com.mysql.jdbc.Driver'
 			username = 'eventfinder'
 			password = 'secret'
-            dbCreate = "create-drop" // one of 'create', 'create-drop','update'
+            dbCreate = "update" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost/eventfinder"
         }
     }

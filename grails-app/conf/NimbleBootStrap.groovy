@@ -17,6 +17,7 @@
  
 
 import grails.plugins.nimble.InstanceGenerator
+import grails.plugins.nimble.core.RoleService
 
 import grails.plugins.nimble.core.LevelPermission
 import grails.plugins.nimble.core.Role
@@ -34,10 +35,10 @@ import grails.plugins.nimble.core.UserService
 class NimbleBootStrap {
 
   def grailsApplication
-  
+  def roleService
   def nimbleService
   def userService
-  def adminsService
+  AdminsService adminsService
 
   def init = {servletContext ->
 
@@ -65,8 +66,12 @@ class NimbleBootStrap {
       }
       throw new RuntimeException("Error creating example user")
     }
+	// Create roles for student, trainer and event coordinator
+	roleService.createRole("STUDENT", "Can signup for a class", false)
+	roleService.createRole("TRAINER", "Can create, and be trainer for, classes", false)
+	roleService.createRole("EVENT COORDINATOR", "Can manage classes on behalf of other trainers", false)
+	// Create example Administrative account
 
-    // Create example Administrative account
     def admins = Role.findByName(AdminsService.ADMIN_ROLE)
     def admin = InstanceGenerator.user()
     admin.username = "admin"

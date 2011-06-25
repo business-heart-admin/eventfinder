@@ -17,17 +17,16 @@
 
 
 import grails.plugins.nimble.InstanceGenerator
+import grails.plugins.nimble.core.RoleService
 
 import grails.plugins.nimble.core.LevelPermission
 import grails.plugins.nimble.core.Role
 import grails.plugins.nimble.core.Group
 import grails.plugins.nimble.core.AdminsService
 import grails.plugins.nimble.core.UserService
-import grails.plugins.nimble.core.RoleService
 import org.businessheart.AppUser
 import org.businessheart.AppProfile
-import grails.plugins.nimble.core.RoleService
-
+import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
 
 /*
  * Allows applications using Nimble to undertake process at BootStrap that are related to Nimbe provided objects
@@ -39,11 +38,10 @@ import grails.plugins.nimble.core.RoleService
 class NimbleBootStrap {
 
 	def grailsApplication
-
+	def roleService
 	def nimbleService
 	def userService
-	def adminsService
-	def roleService
+	AdminsService adminsService
 
 	def init = {servletContext ->
 
@@ -53,19 +51,22 @@ class NimbleBootStrap {
 		// Execute any custom Nimble related BootStrap for your application below
 
 		// Create example User account
-		def user =AppUser.findByUsername("user")
+		
+				
+		def passwordText = CH.config.nimble.passwords.mustcontain.uppercase?"!11fdsa3jfaAdsfG8l;J":"secret"
+		
+		def user = AppUser.findByUsername("user")
 		if(!user){
 			user = InstanceGenerator.user()
 			user.username = "user"
-			user.pass = 'secret'
-			user.passConfirm = 'secret'
+			user.pass = passwordText
+			user.passConfirm = passwordText
 			user.enabled = true
 
-				def userProfile = InstanceGenerator.profile()
-				userProfile.fullName = "Test User"
-				userProfile.owner = user
-				user.profile = userProfile
-		
+			def userProfile = InstanceGenerator.profile()
+			userProfile.fullName = "Test User"
+			userProfile.owner = user
+			user.profile = userProfile
 
 			def savedUser = userService.createUser(user)
 			if (savedUser.hasErrors()) {
@@ -73,20 +74,21 @@ class NimbleBootStrap {
 				throw new RuntimeException("Error creating example user")
 			}
 		}
-		//Create roles for student,trainer and event coordinator
-		roleService.createRole("STUDENT","Can signup for a class",false)
-		roleService.createRole("TRAINER","Can create and be trainer for classes",false)
-		roleService.createRole("EVENT COORDINATOR","Can manage classes on behalf of other trainers",false)
-
+		// Create roles for student, trainer and event coordinator
+		roleService.createRole("STUDENT", "Can signup for a class", false)
+		roleService.createRole("TRAINER", "Can create, and be trainer for, classes", false)
+		roleService.createRole("EVENT COORDINATOR", "Can manage classes on behalf of other trainers", false)
 		// Create example Administrative account
+
 		def admins = Role.findByName(AdminsService.ADMIN_ROLE)
 
-		def admin =AppUser.findByUsername("admin")
-		admin = InstanceGenerator.user()
+			def admin = AppUser.findByUsername("admin")
 		if(!admin){
+			admin = InstanceGenerator.user()
 			admin.username = "admin"
-			admin.pass = "secret"
-			admin.passConfirm = "secret"
+		
+			admin.pass = passwordText
+			admin.passConfirm = passwordText
 			admin.enabled = true
 
 			def adminProfile = InstanceGenerator.profile()

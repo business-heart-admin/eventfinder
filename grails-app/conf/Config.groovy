@@ -87,5 +87,5 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     warn   'org.mortbay.log'
-	trace	'grails.app.bootstrap'
+	info	'grails.app.bootstrap'
 }

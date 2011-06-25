@@ -28,17 +28,17 @@ nimble {
         logosmall = ""
         url = "businessheart.org/eventfinder"
     }
-	
+
 	passwords {
 		mustcontain {
-			lowercase = false
+			lowercase = true
 			uppercase = false
 			numbers = false
 			symbols = false
 		}
 		minlength = 6
 	}
-
+	
 	layout {
         application = 'app'
         administration = 'admin'

@@ -159,7 +159,52 @@ Here's how it's configured [TODO]
 Event Finder Build Process
 ------------------------------------
 
-      1. [TODO]
+      1. Browse http://hudson.clj-consulting.com/job/EventFinder/ and make sure the latest Hudson build is good
+            hudson.clj-consulting.com is 206.125.168.82
+      2. ssh hudson.clj-consulting.com -p 27382 -l sa
+      3. cd ~/war_files
+      4. ./ef_fetch_latest.sh (you'll be asked for the sa password)
+
+      If there are no schema changes, and if you don't care about clearing the Tomcat logs, then just do this:
+
+      5. ./ef_fast_deploy_latest.sh
+      6. Skip to 11, below
+
+      OTHERWISE, do this
+
+      5. (Back in the browser) Manage Hudson | Prepare for ShutDown
+      6. (Back in the ssh window) tstop (tstop is an alias for "/etc/init.d/tomcat stop")
+      7. tps (tps is an alias for "ps aux | grep catalina") -- repeat until clear
+      8. ./ef_deploy_latest.sh
+      9. TODO IMPORTANT: Make sure the DB is backed up and aligned with the latest release
+            - Any password changes?
+            - All patches executed
+     10. tstart (tstart is an alias for "/etc/init.d/tomcat start")
+
+     11. TODO Don't forget to add the new app.version in Trac.
+	 12. TODO Run the selenium smoke test (see below)
+	 13. TODO Run the manual smoke test
+	 14. Send out an email pointing to the release notes on Hudson
+
+To push a build from DEV to production,
+
+      1. ssh hudson.clj-consulting.com -p 27382 -l sa
+      2. ./ef_push_latest.sh
+      3. (In another window) ssh alpha61.clj-consulting.com -p 27361 -l sa
+            alpha61.clj-consulting.com is 206.125.168.61
+      4. cd ~/war_files
+      5. tstop
+      6. tps
+      7. ./ef_deploy_latest.sh
+      8. TODO IMPORTANT: Make sure the DB is backed up and aligned with the latest release
+            - Any password changes?
+            - All patches executed
+      9. tstart
+	 10. TODO Run the selenium smoke test (see below)
+	 11. TODO Run the manual smoke test
+	 12. Send out an email pointing to the release notes on Hudson
+
+
 
 
 
@@ -360,3 +405,18 @@ Updating the Terms of Service
 and Privacy Policy
 ------------------------------------
 The Terms of Service and Privacy Policy text is maintained as [TODO]
+
+
+------------------------------------
+Eclipse-Specific Environment Setup
+------------------------------------
+Make sure all of the following folders are included in the Build Path:
+
+grails-app\domain
+grails-app\controller
+grails-app\service
+grails-app\conf
+grails-app\taglib
+
+test\unit
+test\integration

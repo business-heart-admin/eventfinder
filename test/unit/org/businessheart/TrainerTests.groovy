@@ -92,4 +92,39 @@ class TrainerTests extends GrailsUnitTestCase {
 		//trainer.errors.each {println it}
 		assertEquals "email",trainer.errors["email"]
 	}
+	
+	public void testToString() throws Exception {
+		def trainer = new Trainer()
+		trainer.lastName = 'Smith'
+		trainer.firstName = 'Joe'
+		trainer.email = 'joeexample.com'
+		assertEquals 'Smith, Joe (joeexample.com)',trainer.toString()
+		
+	}
+
+	void testValidate_BadUrl() {
+		def trainer = new Trainer()
+		trainer.phone = '9946555257'
+		trainer.lastName = 'Smith'
+		trainer.firstName = 'Joe'
+		trainer.email = 'joe@example.com'
+		trainer.displayGravatar = false
+		trainer.address1 = '1 Greco'
+		trainer.address2 = ''
+		trainer.city = 'Anytown'
+		trainer.state = 'CA'
+		trainer.country = 'USA'
+		trainer.zip = '99999'
+		trainer.organization = ''
+		trainer.website = 'www.conscires.com'
+		trainer.certifications = ''
+		trainer.comments = ''
+		trainer.keywords = ''
+		assertFalse trainer.validate()
+		assertTrue trainer.hasErrors()
+		assertEquals 1,trainer.errors.errorCount
+		//trainer.errors.each {println it}
+		assertEquals "url",trainer.errors["website"]
+	}
+	
 }

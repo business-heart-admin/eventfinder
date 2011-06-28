@@ -31,5 +31,9 @@ class Event {
 		studentComments(blank:true,maxsize:4000,widget:"textarea")
 		attachment(nullable:true,maxSize:1073741824,display:false)//4 GB
 		}
+	
+	String toString(){
+		return name + " ("+ startTime + ")";
+	}
 }
 

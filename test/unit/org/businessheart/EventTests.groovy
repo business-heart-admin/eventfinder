@@ -79,7 +79,7 @@ class EventTests extends GrailsUnitTestCase {
 
 	void testValidate_Good() {
 		def event = new Event()
-		event.name = 'AGILE'
+		event.name = 'Intro to Agile'
 		event.description = 'Agile Practices'
 		event.trainer = trainer
 		event.venue = venue
@@ -97,7 +97,7 @@ class EventTests extends GrailsUnitTestCase {
 	
 	void testValidate_BadLevel() {
 		def event = new Event()
-		event.name = 'AGILE'
+		event.name = 'Intro to Agile'
 		event.description = 'Agile Practices'
 		event.trainer = trainer
 		event.venue = venue
@@ -114,14 +114,13 @@ class EventTests extends GrailsUnitTestCase {
 		assertEquals "inList",event.errors["level"]
 	}
 	
-//	public void testToString() throws Exception {
-//		def event = new Trainer()
-//		event.lastName = 'Smith'
-//		event.firstName = 'Joe'
-//		event.email = 'joeexample.com'
-//		assertEquals 'Smith, Joe (joeexample.com)',event.toString()
-//		
-//	}
+	public void testToString() throws Exception {
+		def event = new Event()
+		event.name = 'Intro to Agile'
+		event.startTime  = new Date("6/28/2011 10:00")
+		assertEquals 'Intro to Agile (Tue Jun 28 10:00:00 PDT 2011)',event.toString()
+		
+	}
 
 	
 }

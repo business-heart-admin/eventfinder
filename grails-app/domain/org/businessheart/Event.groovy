@@ -26,9 +26,10 @@ class Event {
 		startTime(nullable:false,scale:5)
 		endTime(nullable:false,scale:3)
 		keywords(blank:true)
-		level(inList:["Beginner","Intermediate","Advanced"])
+		level(blank:true,inList:["Beginner","Intermediate","Advanced"])
 		trainerComments(blank:true,maxsize:4000,widget:"textarea")
 		studentComments(blank:true,maxsize:4000,widget:"textarea")
 		attachment(nullable:true,maxSize:1073741824,display:false)//4 GB
 		}
 }
+

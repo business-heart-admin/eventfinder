@@ -1,100 +1,66 @@
 <html>
-    <head>
-        <title>Welcome to Grails</title>
-        <meta name="layout" content="main" />
-        <style type="text/css" media="screen">
+<head>
+<title>Welcome to Grails</title>
+<meta name="layout" content="eventfinder" />
+</head>
+<body>
+	<div id="pageBody" class="body">
+		<div class="columnSmall">
+			<div id="newTrainers" class="widgetSmall">
+				<div class="titleSection">
+					<h1 class="title">New Trainers</h1>
+				</div>
+				Joe Smith <br /> Bachan Anand <br /> <br />
+			</div>
+			<div id="testimonials" class="widgetSmall">
+				<div class="titleSection">
+					<h1 class="title">Testimonials</h1>
+				</div>
+				<blockquote>This is the greatest training seminar I
+					have ever attended...</blockquote>
+				<br />
+			</div>
+		</div>
+		
+		<div class="columnMedium">
+			<div id="controllerList" class="widgetMedium">
+				<h2>Available Controllers:</h2>
+				<ul>
+					<g:each var="c"
+						in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+						<li class="controller"><g:link
+								controller="${c.logicalPropertyName}">
+								${c.fullName}
+							</g:link>
+						</li>
+					</g:each>
+				</ul>
+			</div>
+			<div id="upcomingEvents" class="widgetMedium">
+				<div class="titleSection">
+					<h1 class="title">Upcoming Events</h1>
+				</div>
+				Event 1 <br /> Event 2 <br /> <br />
+			</div>
+		</div>
+		<div class="columnBig">
+			<div id="aboutUs" class="widgetBig">
+				<div class="titleSection">
+					<h1 class="title">About Us</h1>
+				</div>
+				<p>Business Heart is an emergent, untethered and entirely
+					unowned entity. Its mission is to socialize the new business
+					paradigm as expressed in many disciplines currently being applied
+					in a growing number of work enviroments, incuding Chaos Theory,
+					Complex Adaptive Systems, Emotional Intelligence, Integral and
+					Co-active Coaching, Stewardship, Agile, Scrum, Kanban, Artful
+					Making and Business Craftsmanship. Practitioners in all these
+					fields share a passion to create a more humane, organic and
+					trustful workplace.</p>
+			</div>
+		</div>
 
-        #nav {
-            margin-top:20px;
-            margin-left:30px;
-            width:228px;
-            float:left;
-
-        }
-        .homePagePanel * {
-            margin:0px;
-        }
-        .homePagePanel .panelBody ul {
-            list-style-type:none;
-            margin-bottom:10px;
-        }
-        .homePagePanel .panelBody h1 {
-            text-transform:uppercase;
-            font-size:1.1em;
-            margin-bottom:10px;
-        }
-        .homePagePanel .panelBody {
-            background: url(images/leftnav_midstretch.png) repeat-y top;
-            margin:0px;
-            padding:15px;
-        }
-        .homePagePanel .panelBtm {
-            background: url(images/leftnav_btm.png) no-repeat top;
-            height:20px;
-            margin:0px;
-        }
-
-        .homePagePanel .panelTop {
-            background: url(images/leftnav_top.png) no-repeat top;
-            height:11px;
-            margin:0px;
-        }
-        h2 {
-            margin-top:15px;
-            margin-bottom:15px;
-            font-size:1.2em;
-        }
-        #pageBody {
-            margin-left:280px;
-            margin-right:20px;
-        }
-        </style>
-    </head>
-    <body>
-        <div id="nav">
-            <div class="homePagePanel">
-                <div class="panelTop"></div>
-                <div class="panelBody">
-                    <h1>Application Status</h1>
-                    <ul>
-                        <li>App version: <g:meta name="app.version"></g:meta></li>
-                        <li>Grails version: <g:meta name="app.grails.version"></g:meta></li>
-                        <li>Groovy version: ${org.codehaus.groovy.runtime.InvokerHelper.getVersion()}</li>
-                        <li>JVM version: ${System.getProperty('java.version')}</li>
-                        <li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-                        <li>Domains: ${grailsApplication.domainClasses.size()}</li>
-                        <li>Services: ${grailsApplication.serviceClasses.size()}</li>
-                        <li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-                    </ul>
-                    <h1>Installed Plugins</h1>
-                    <ul>
-                        <g:set var="pluginManager"
-                               value="${applicationContext.getBean('pluginManager')}"></g:set>
-
-                        <g:each var="plugin" in="${pluginManager.allPlugins}">
-                            <li>${plugin.name} - ${plugin.version}</li>
-                        </g:each>
-
-                    </ul>
-                </div>
-                <div class="panelBtm"></div>
-            </div>
-        </div>
-        <div id="pageBody">
-            <h1>Welcome to Grails</h1>
-            <p>Congratulations, you have successfully started your first Grails application! At the moment
-            this is the default page, feel free to modify it to either redirect to a controller or display whatever
-            content you may choose. Below is a list of controllers that are currently deployed in this application,
-            click on each to execute its default action:</p>
-
-            <div id="controllerList" class="dialog">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
-                </ul>
-            </div>
-        </div>
-    </body>
+		<div class="clear"></div>
+	</div>
+</body>
 </html>

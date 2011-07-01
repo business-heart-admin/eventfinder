@@ -1,0 +1,32 @@
+Definition of When a Story is READY:
+
+    - Acceptance criteria are explicitly stated, if not painfully obvious
+    - Mocks available (if a UI story)
+    - Business rules are known (calculations/formulae, restrictions/regulations, validation rules, etc.)
+
+Definition of DONE for Stories:
+
+    - Generally meets the acceptance criteria
+    - Java code is JUnit tested (except generated code)
+    - Tests include significant coverage of exception scenarios (not just the happy paths)
+    - New screens are spell checked, etc.
+    - UI Code is developed and tested in FireFox (3.x) and IE (8.x)
+    - [not yet 6-24-11] Significant JavaScript code (anything that has to do with validation, processing data, etc.) is unit tested (via Selenium)
+    - [not yet 6-24-11] Functional QA tests are scripted
+    - [not yet 6-24-11] Style Guide Compliance
+
+Definition of DONE for Sprints:
+
+Definition of DONE for Release Candidates:
+
+Definition of DONE does NOT include:
+
+    - Performance testing
+    - Load testing
+    - Testing in any browser other than FF and IE
+
+Java source task markers
+
+    TODO - OK to span sprints/releases
+    FIXME - OK to span sprints, but there should be no FIXME comments in released code
+    XXX - For marking local DEBUG code (Breaks build if accidentally committed)

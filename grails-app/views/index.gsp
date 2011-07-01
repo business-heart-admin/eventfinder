@@ -6,13 +6,13 @@
 <body>
 	<div id="pageBody" class="body">
 		<div class="columnSmall">
-			<div id="newTrainers" class="widgetSmall">
+			<div id="newTrainers" class="widget">
 				<div class="titleSection">
 					<h1 class="title">New Trainers</h1>
 				</div>
 				Joe Smith <br /> Bachan Anand <br /> <br />
 			</div>
-			<div id="testimonials" class="widgetSmall">
+			<div id="testimonials" class="widget">
 				<div class="titleSection">
 					<h1 class="title">Testimonials</h1>
 				</div>
@@ -23,7 +23,7 @@
 		</div>
 		
 		<div class="columnMedium">
-			<div id="controllerList" class="widgetMedium">
+			<div id="controllerList" class="widget">
 				<h2>Available Controllers:</h2>
 				<ul>
 					<g:each var="c"
@@ -36,7 +36,7 @@
 					</g:each>
 				</ul>
 			</div>
-			<div id="upcomingEvents" class="widgetMedium">
+			<div id="upcomingEvents" class="widget">
 				<div class="titleSection">
 					<h1 class="title">Upcoming Events</h1>
 				</div>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<div class="columnBig">
-			<div id="aboutUs" class="widgetBig">
+			<div id="aboutUs" class="widget">
 				<div class="titleSection">
 					<h1 class="title">About Us</h1>
 				</div>

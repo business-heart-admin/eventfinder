@@ -278,7 +278,7 @@ td.value {
 	width: 300px;
 	border-left: 2px solid #E0E0E0;
 }
-.widgetSmall,.widgetMedium{
+.columnSmall .widget,.columnMedium .widget{
 	background-color: #CCFFFF;
 	margin: 6px 0 6px 0;
 	border-bottom: 1px dashed black;

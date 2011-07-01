@@ -1,23 +1,23 @@
 package org.businessheart
 
 class Trainer {
-	String firstName
-	String lastName
-	String email
+	String firstName = ''
+	String lastName = ''
+	String email = ''
 	Boolean displayGravatar
-	String phone
-	String address1
-	String address2
-	String city
-	String state
+	String phone = ''
+	String address1 = ''
+	String address2 = ''
+	String city = ''
+	String state = ''
 	String country = "USA"
-	String zip
-	String organization
-	String website
-	String certifications
+	String zip = ''
+	String organization = ''
+	String website = ''
+	String certifications = ''
 	Boolean active = true
-	String keywords
-	String comments
+	String keywords = ''
+	String comments = ''
 	Date dateCreated
 	Date lastUpdated
 
@@ -41,9 +41,9 @@ class Trainer {
 		comments(blank:true,maxSize:4000,widget:"textarea")
 
 	}
-	
+
 	String toString(){
 		return lastName + ", " + firstName + " (" + email + ")";
 	}
-	
+
 }

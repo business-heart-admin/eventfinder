@@ -48,6 +48,10 @@ class TrainerControllerTests extends ControllerUnitTestCase {
         def model = trainerController.list()
         assertEquals 3, model.trainerInstanceTotal
         assertEquals 3, model.trainerInstanceList.size()
+		def nosuch = Trainer.findByEmail('x@example.com')
+		assertFalse model.trainerInstanceList.contains(nosuch)
+		def jane = Trainer.findByEmail('jane@example.com')
+		assertTrue model.trainerInstanceList.contains(jane)
     }
 
     void testCreate() {

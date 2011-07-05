@@ -54,12 +54,19 @@ class TrainerControllerTests extends ControllerUnitTestCase {
 		assertTrue model.trainerInstanceList.contains(jane)
     }
 
-    void testCreate() {
+    void testCreate_Empty() {
         def model = trainerController.create()
         assertEquals Trainer.class.name, model.trainerInstance.class.name
         assertNull model.trainerInstance.id
     }
-
+	void testCreate_PreFilled() {
+		trainerController.params.putAll([id: 1,email: 'joe@example.com', firstName: 'Joe', lastName: 'Smith', phone: '(949) 555-1212', displayGravatar: false, address1: '1234 Main St.', city: 'Anytown', state: 'CA', country: 'USA', zip: '99999'])
+		def model = trainerController.create()
+		assertEquals Trainer.class.name, model.trainerInstance.class.name
+		assertEquals 1,model.trainerInstance.id
+		assertEquals 'joe@example.com',model.trainerInstance.email
+	}
+	
     void testShow() {
         trainerController.params.id = 2
         def model = trainerController.show()
@@ -75,12 +82,43 @@ class TrainerControllerTests extends ControllerUnitTestCase {
         assertEquals 'default.not.found.message',trainerController.flash.message
     }
 
-    void testSave() {
-        // FIXME need a test here
+     void testSave_Good() {
+		trainerController.params.putAll([email: 'jack@example.com', firstName: 'Jack', lastName: 'Smith', phone: '(949) 555-1212', displayGravatar: false, address1: '1234 Main St.', city: 'Anytown', state: 'CA', country: 'USA', zip: '99999'])
+		def model = trainerController.save()
+		def jack = Trainer.findByEmail('jack@example.com')
+		assertEquals 4,jack.id
+		
     }
-    void testEdit() {
-        // FIXME need a test here
+	 void testSave_Invalid() {
+		 trainerController.params.putAll([email: 'jack@example.com', firstName: 'Jack'])
+		 def model = trainerController.save()
+		 def jack = Trainer.findByEmail('jack@example.com')
+		 assertNull jack
+	 }
+	 
+    void testEdit_Joe() {
+		trainerController.params.id = 1
+		def model = trainerController.edit()
+		assertEquals Trainer.class.name, model.trainerInstance.class.name
+		assertEquals 1,model.trainerInstance.id
+		assertEquals 'joe@example.com',model.trainerInstance.email
     }
+	
+	void testEdit_Jane() {
+		trainerController.params.id = 2
+		def model = trainerController.edit()
+		assertEquals Trainer.class.name, model.trainerInstance.class.name
+		assertEquals 2,model.trainerInstance.id
+		assertEquals 'jane@example.com',model.trainerInstance.email
+	}
+	
+	void testEdit_noSuch() {
+		trainerController.params.id = 999
+		def model = trainerController.edit()
+		assertNull model
+		assertEquals 'default.not.found.message',trainerController.flash.message
+	}
+	
     void testUpdate() {
         // FIXME need a test here
     }

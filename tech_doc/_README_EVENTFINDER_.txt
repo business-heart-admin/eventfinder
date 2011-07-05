@@ -10,7 +10,7 @@ details pertaining to the eventfinder project.
 Status of this File
 ------------------------------------
 As of 3-Jun-2011, this application has not yet been deployed.  Any information
-that implies that it has been deployed is actually ust prediting how it will
+that implies that it has been deployed is actually just predicting how it will
 work (based on how similar Grails applications have been deployed in the past).
 
 
@@ -159,9 +159,9 @@ Here's how it's configured [TODO]
 Event Finder Build Process
 ------------------------------------
 
-      1. Browse http://hudson.clj-consulting.com/job/EventFinder/ and make sure the latest Hudson build is good
-            hudson.clj-consulting.com is 206.125.168.82
-      2. ssh hudson.clj-consulting.com -p 27382 -l sa
+      1. Browse http://jenkins.clj-consulting.com/job/EventFinder/ and make sure the latest Jenkins build is good
+            jenkins.clj-consulting.com is 206.125.168.82
+      2. ssh jenkins.clj-consulting.com -p 27382 -l sa
       3. cd ~/war_files
       4. ./ef_fetch_latest.sh (you'll be asked for the sa password)
 
@@ -172,7 +172,7 @@ Event Finder Build Process
 
       OTHERWISE, do this
 
-      5. (Back in the browser) Manage Hudson | Prepare for ShutDown
+      5. (Back in the browser) Manage Jenkins | Prepare for ShutDown
       6. (Back in the ssh window) tstop (tstop is an alias for "/etc/init.d/tomcat stop")
       7. tps (tps is an alias for "ps aux | grep catalina") -- repeat until clear
       8. ./ef_deploy_latest.sh
@@ -184,11 +184,11 @@ Event Finder Build Process
      11. TODO Don't forget to add the new app.version in Trac.
 	 12. TODO Run the selenium smoke test (see below)
 	 13. TODO Run the manual smoke test
-	 14. Send out an email pointing to the release notes on Hudson
+	 14. Send out an email pointing to the release notes on Jenkins
 
 To push a build from DEV to production,
 
-      1. ssh hudson.clj-consulting.com -p 27382 -l sa
+      1. ssh jenkins.clj-consulting.com -p 27382 -l sa
       2. ./ef_push_latest.sh
       3. (In another window) ssh alpha61.clj-consulting.com -p 27361 -l sa
             alpha61.clj-consulting.com is 206.125.168.61
@@ -202,7 +202,7 @@ To push a build from DEV to production,
       9. tstart
 	 10. TODO Run the selenium smoke test (see below)
 	 11. TODO Run the manual smoke test
-	 12. Send out an email pointing to the release notes on Hudson
+	 12. Send out an email pointing to the release notes on Jenkins
 
 
 
@@ -214,9 +214,9 @@ Advancing the app's version number
 1. Tag GIT for the last build of the last iteration. (In case we need to start
    a maintenance branch based on the tag.)
 
-2. Change the build configuration in Hudson:
+2. Change the build configuration in Jenkins:
 
-   a. http://dev.businessheart.org/hudson/job/Event%20Finder/configure
+   a. http://dev.businessheart.org/jenkins/job/Event%20Finder/configure
    b. Scroll down to the Build section.
    c. One of the targets in the Targets field is set-version, e.g.:
 

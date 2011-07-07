@@ -3,15 +3,17 @@ package org.businessheart
 import grails.test.*
 
 class EventTests extends GrailsUnitTestCase {
-	def trainer
-	def venue
+	//def trainer
+	//def venue
+	Trainer trainer = new Trainer(phone: '9946555257',lastName: 'Smith',firstName: 'Joe',email: 'joe@example.com',displayGravatar: false,address1: '1 Greco',address2: '',city: 'Anytown',state: 'CA',country: 'USA',zip: '99999',organization: '',website: '',certifications: '',comments: '',keywords: '')
+	Venue venue= new Venue(name: 'Conscires',address1: '1 Greco Aisle',address2: '',city: 'Irvine',state: 'CA',country: 'USA',zip: '',contactName: '',contactPhone: '',capacity: 10,trainerComments: '',studentComments: '')
 	
 	protected void setUp() {
 		super.setUp()
 		mockDomain(Event)
 		mockDomain(Trainer)
 		mockDomain(Venue)
-		trainer = new Trainer()
+		/*trainer = new Trainer()
 		trainer.phone = '9946555257'
 		trainer.lastName = 'Smith'
 		trainer.firstName = 'Joe'
@@ -41,7 +43,7 @@ class EventTests extends GrailsUnitTestCase {
 		venue.contactPhone = ''
 		venue.capacity = 10
 		venue.trainerComments = ''
-		venue.studentComments = ''
+		venue.studentComments = ''*/
 		
 	}
 
@@ -53,42 +55,13 @@ class EventTests extends GrailsUnitTestCase {
 		def event = new Event()
 		assertFalse event.validate()
 		assertTrue event.hasErrors()
-		assertEquals 10,event.errors.errorCount
+		assertEquals 5,event.errors.errorCount
 		assertEquals "nullable",event.errors["startTime"]
 	}
 
-	void testValidate_Blank() {
-		def event = new Event()
-		event.name = ''
-		event.description = ''
-		event.trainer = null
-		event.venue = null
-		event.startTime = null
-		event.endTime = null
-		event.keywords = ''
-		event.level = ''
-		event.attachment = ''
-		event.studentComments = ''
-		event.trainerComments = ''
-		assertFalse event.validate()
-		assertTrue event.hasErrors()
-		assertEquals 5,event.errors.errorCount
-		//event.errors.each {println it}
-		assertEquals "blank",event.errors["name"]
-	}
-
+	
 	void testValidate_Good() {
-		def event = new Event()
-		event.name = 'Intro to Agile'
-		event.description = 'Agile Practices'
-		event.trainer = trainer
-		event.venue = venue
-		event.startTime = new Date("6/28/2011 10:00") 
-		event.endTime = new Date("6/28/2011 17:00")
-		event.keywords = ''
-		event.level = 'Advanced'
-		event.studentComments = ''
-		event.trainerComments = ''
+		Event event= new Event(name: 'Intro to Agile',description: 'Agile Practices',trainer: trainer,venue: venue,startTime: new Date("6/28/2011 10:00") ,endTime: new Date("6/28/2011 17:00"),keywords: '',level: 'Advanced',studentComments: '',trainerComments: '')
 		assertTrue event.validate()
 		assertFalse event.hasErrors()
 		assertEquals 0,event.errors.errorCount
@@ -96,17 +69,7 @@ class EventTests extends GrailsUnitTestCase {
 	}
 	
 	void testValidate_BadLevel() {
-		def event = new Event()
-		event.name = 'Intro to Agile'
-		event.description = 'Agile Practices'
-		event.trainer = trainer
-		event.venue = venue
-		event.startTime = new Date("6/28/2011 10:00") 
-		event.endTime = new Date("6/28/2011 17:00")
-		event.keywords = ''
-		event.level = 'XXX'
-		event.studentComments = ''
-		event.trainerComments = ''
+		Event event= new Event(name: 'Intro to Agile',description: 'Agile Practices',trainer: trainer,venue: venue,startTime: new Date("6/28/2011 10:00") ,endTime: new Date("6/28/2011 17:00"),keywords: '',level: 'XXX',studentComments: '',trainerComments: '')
 		assertFalse event.validate()
 		assertTrue event.hasErrors()
 		assertEquals 1,event.errors.errorCount
@@ -115,9 +78,7 @@ class EventTests extends GrailsUnitTestCase {
 	}
 	
 	public void testToString() throws Exception {
-		def event = new Event()
-		event.name = 'Intro to Agile'
-		event.startTime  = new Date("6/28/2011 10:00")
+		Event event= new Event(name: 'Intro to Agile',startTime: new Date("6/28/2011 10:00"))
 		assertEquals 'Intro to Agile (Tue Jun 28 10:00:00 PDT 2011)',event.toString()
 		
 	}

@@ -16,46 +16,13 @@ class VenueTests extends GrailsUnitTestCase {
 		def venue = new Venue()
 		assertFalse venue.validate()
 		assertTrue venue.hasErrors()
-		assertEquals 10,venue.errors.errorCount
+		assertEquals 4,venue.errors.errorCount
 		//venue.errors.each {println it}
-		assertEquals "nullable",venue.errors["contactPhone"]
-	}
-
-	void testValidate_Blank() {
-		def venue = new Venue()
-		venue.name = ''
-		venue.address1 = ''
-		venue.address2 = ''
-		venue.city = ''
-		venue.state = ''
-		venue.country = ''
-		venue.zip = ''
-		venue.contactName = ''
-		venue.contactPhone = ''
-		venue.capacity = 0
-		venue.trainerComments = ''
-		venue.studentComments = ''
-		assertFalse venue.validate()
-		assertTrue venue.hasErrors()
-		assertEquals 5,venue.errors.errorCount
-		//enue.errors.each {println it}
-		assertEquals "blank",venue.errors["city"]
+		assertEquals "blank",venue.errors["state"]
 	}
 
 	void testValidate_Good() {
-		def venue = new Venue()
-		venue.name = 'Conscires'
-		venue.address1 = '1 Greco Aisle'
-		venue.address2 = ''
-		venue.city = 'Irvine'
-		venue.state = 'CA'
-		venue.country = 'USA'
-		venue.zip = ''
-		venue.contactName = ''
-		venue.contactPhone = ''
-		venue.capacity = 10
-		venue.trainerComments = ''
-		venue.studentComments = ''
+		Venue venue = new Venue(name: 'Conscires', address1: '1 Greco Aisle', address2:'',city: 'Irvine', state: 'CA', country: 'USA', zip: '', contactName: '', contactPhone: '', capacity: 10, trainerComments: '', studentComments: '')
 		assertTrue venue.validate()
 		assertFalse venue.hasErrors()
 		assertEquals 0,venue.errors.errorCount
@@ -63,8 +30,7 @@ class VenueTests extends GrailsUnitTestCase {
 	}
 		
 	public void testToString() throws Exception {
-		def venue = new Venue()
-		venue.name = 'Conscires'
+		Venue venue = new Venue(name: 'Conscires')
 		assertEquals 'Conscires',venue.toString()
 		
 	}

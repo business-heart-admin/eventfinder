@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Welcome to Grails</title>
+<title>Event Finder</title>
 <meta name="layout" content="eventfinder" />
 </head>
 <body>
@@ -24,7 +24,7 @@
 		
 		<div class="columnMedium">
 			<div id="controllerList" class="widget">
-				<h2>Available Controllers:</h2>
+				<h1>Available Controllers:</h1>
 				<ul>
 					<g:each var="c"
 						in="${grailsApplication.controllerClasses.sort { it.fullName } }">

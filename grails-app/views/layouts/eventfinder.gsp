@@ -8,12 +8,12 @@
 	</head>
 	<body>
         <div class="page">
-            <div class="pageinner">
+            <div class="pageinner constrained">
                 <g:render template="/layouts/header"/>
         		<g:layoutBody />
                 <g:render template="/layouts/footer"/>
             </div>
 
-        </div>
+        </div> 
       	</body>
 </html>

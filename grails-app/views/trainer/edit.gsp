@@ -2,7 +2,7 @@
 <html>
     <head>
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-         <meta name="layout" content="no-img-skin" />
+         <meta name="layout" content="eventfinder" />
          <title>Edit Trainer</title>
     </head>
     <body>

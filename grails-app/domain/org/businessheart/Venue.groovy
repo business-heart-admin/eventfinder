@@ -3,18 +3,18 @@ package org.businessheart
 import java.util.Date;
 
 class Venue {
-	String name
-	String address1
-	String address2
-	String city 
-	String state
+	String name = ''
+	String address1 = ''
+	String address2 = ''
+	String city = ''
+	String state= ''
 	String country = "USA"
-	String zip
-	String contactName
-	String contactPhone
+	String zip = ''
+	String contactName = ''
+	String contactPhone = ''
 	Integer capacity
-	String trainerComments
-	String studentComments
+	String trainerComments = ''
+	String studentComments = ''
 	Date dateCreated
 	Date lastUpdated
 	

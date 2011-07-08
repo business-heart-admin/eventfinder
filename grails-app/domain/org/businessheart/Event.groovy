@@ -4,16 +4,16 @@ import java.util.Date
 
 class Event {
 
-	String name
-	String description
+	String name = ''
+	String description = ''
 	Venue venue
 	Trainer trainer
 	Date startTime
 	Date endTime
-	String keywords
-	String level
-	String trainerComments
-	String studentComments
+	String keywords = ''
+	String level = ''
+	String trainerComments = ''
+	String studentComments = ''
 	byte[] attachment
 	Date dateCreated
 	Date lastUpdated

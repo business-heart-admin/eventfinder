@@ -84,14 +84,14 @@ class TrainerControllerTests extends ControllerUnitTestCase {
 
      void testSave_Good() {
 		trainerController.params.putAll([email: 'jack@example.com', firstName: 'Jack', lastName: 'Smith', phone: '(949) 555-1212', displayGravatar: false, address1: '1234 Main St.', city: 'Anytown', state: 'CA', country: 'USA', zip: '99999'])
-		def model = trainerController.save()
+		trainerController.save()
 		def jack = Trainer.findByEmail('jack@example.com')
 		assertEquals 4,jack.id
 		
     }
 	 void testSave_Invalid() {
 		 trainerController.params.putAll([email: 'jack@example.com', firstName: 'Jack'])
-		 def model = trainerController.save()
+		 trainerController.save()
 		 def jack = Trainer.findByEmail('jack@example.com')
 		 assertNull jack
 	 }
@@ -119,12 +119,35 @@ class TrainerControllerTests extends ControllerUnitTestCase {
 		assertEquals 'default.not.found.message',trainerController.flash.message
 	}
 	
-    void testUpdate() {
-        // FIXME need a test here
+    void testUpdate_JoeGood() {
+		trainerController.params.id = 1
+		trainerController.params.city = 'Irvine'
+		trainerController.update()
+		def joe = Trainer.findByEmail('joe@example.com')
+		assertEquals 'Irvine',joe.city
+		assertEquals 'default.updated.message',trainerController.flash.message
+	}
+	
+	void testUpdate_noSuch() {
+		trainerController.params.id = 999
+		def model = trainerController.update()
+		assertNull model
+		assertEquals 'default.not.found.message',trainerController.flash.message  
+	}
+	
+    void testDelete_Good() {
+		trainerController.params.id = 1
+		trainerController.delete()
+		def joe = Trainer.findByEmail('joe@example.com')
+		assertNull joe
+		assertEquals 'default.deleted.message',trainerController.flash.message
     }
-    void testDelete() {
-        // FIXME need a test here
-    }
-
+	
+	void testDelete_Bad() {
+		trainerController.params.id = 999
+		def model = trainerController.delete()
+		assertEquals 'default.not.found.message',trainerController.flash.message
+		assertNull model
+	}
 
 }

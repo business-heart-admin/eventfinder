@@ -4,25 +4,15 @@
 <meta name="layout" content="eventfinder" />
 </head>
 <body>
-	<div id="pageBody" class="body">
-		<div class="columnSmall">
-			<div id="newTrainers" class="widget">
-				<div class="titleSection">
-					<h1 class="title">New Trainers</h1>
-				</div>
-				Joe Smith <br /> Bachan Anand <br /> <br />
-			</div>
-			<div id="testimonials" class="widget">
-				<div class="titleSection">
-					<h1 class="title">Testimonials</h1>
-				</div>
-				<blockquote>This is the greatest training seminar I
-					have ever attended...</blockquote>
-				<br />
-			</div>
-		</div>
-		
 		<div class="columnMedium">
+            <div id="testimonials" class="widget">
+                <div class="titleSection">
+                    <h1 class="title">Testimonials</h1>
+                </div>
+                <blockquote>This is the greatest training seminar I
+                    have ever attended...</blockquote>
+                <br />
+            </div>
 			<div id="controllerList" class="widget">
 				<h1>Available Controllers:</h1>
 				<ul>
@@ -35,12 +25,6 @@
 						</li>
 					</g:each>
 				</ul>
-			</div>
-			<div id="upcomingEvents" class="widget">
-				<div class="titleSection">
-					<h1 class="title">Upcoming Events</h1>
-				</div>
-				Event 1 <br /> Event 2 <br /> <br />
 			</div>
 		</div>
 		<div class="columnBig">
@@ -60,7 +44,7 @@
 			</div>
 		</div>
 
-		<div class="clear"></div>
-	</div>
+		<div class="clear"/>
+
 </body>
 </html>

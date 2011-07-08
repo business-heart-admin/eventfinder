@@ -2,7 +2,7 @@
  * The overall page
  */
 body {
-	background: #333377;
+	background: #FFFFFF;
 	font-family: Trebuchet MS, Arial, sans-serif;
 	font-size: 12pt;
 	margin: 0px;
@@ -14,23 +14,20 @@ body {
 	width: 960px;
 	margin: 0 auto;
 }
-	
+
 .header {
 	color: #333333;
-	background: #DDDDEE;
 	padding: 0px 15px 10px 15px;
 }
 
 .page {
-	background: #222222;
-	margin: 0px 30px 0px 30px;
 	border: 0px none;
 	padding: 0px 2px 2px 2px;
 }
 
 .pageInner {
-	background: #F5F5F5;
 	padding: 0px 0px 5px 0px;
+    min-height: 500px;
 }
 
 .body {
@@ -46,7 +43,7 @@ form {
 .logo {
 	font-family: Arial Black, sans-serif;
 	font-weight: normal;
-	text-shadow: grey 5px 5px;
+	text-shadow: gray 5px 5px;
 	padding: 15px 0px 0px 0px;
 	margin: 0px;
 }
@@ -65,21 +62,9 @@ form {
 	background: #D8D8EE;
 	font-family: Georgia, Times Roman, serif;
 	font-size: 10pt;
-	margin: 0px 0px 3px 0px;
+	margin: 0px 0px 0px 0px;
 	border-top: 1px solid #D4D4EE;
 	border-bottom: 2px solid #CCCCEE;
-}
-
-.navLeft {
-	padding: 2px 5px 1px 5px;
-	float: left;
-	max-width: 760px;
-}
-
-.navRight {
-	padding: 2px 5px 1px 5px;
-	float: right;
-	width: auto;
 }
 
 .menuButton a {
@@ -327,7 +312,7 @@ td.value {
 	font-size: 10pt;
 	width: 120px;
 	border-right: 2px solid #E0E0E0;
-	
+
 }
 
 .columnMedium {
@@ -338,7 +323,8 @@ td.value {
 }
 
 .columnSmall .widget,.columnMedium .widget {
-	background-color: #CCFFFF;
+    background: #DDDDEE;
+
 	margin: 6px 0 6px 0;
 	border-bottom: 1px dashed black;
 }
@@ -353,3 +339,16 @@ blockquote {
 	margin: 2px;
 	line-height: 120%;
 }
+
+#navLogin {width:100%; float:left;}
+#navLogin ul {float:right; padding-top:8px;}
+#navLogin ul li{float:left; list-style:none; font:bold 12px Helvetica, Arial,  sans-serif; color:purple; padding:0px 25px 0px 20px; text-transform:uppercase;}
+#navLogin ul li a{color:purple; text-decoration:none;}
+#navLogin ul li a.register{border-bottom:dotted 1px purple; padding-top:3px; position:relative;}
+#navLogin ul li.click a{font:bold 14px HelveticaNeue, Helvetica,Arial,  sans-serif; float:left; height:16px;}
+
+#navApp {width:100%; float:left;}
+#navApp ul {float:left; padding-top:0;}
+#navApp ul li{float:left; list-style:none; font:bold 11px Helvetica, Arial,  sans-serif; color:purple; padding:0px 5px 0px 2px; text-transform:uppercase;}
+#navApp ul li a{color:purple; text-decoration:none;}
+

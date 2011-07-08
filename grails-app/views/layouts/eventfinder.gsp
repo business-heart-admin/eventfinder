@@ -1,19 +1,27 @@
 <html>
-	<head>
-		<title><g:layoutTitle default="Grails No-Images Skin" /></title>
-		<link rel="stylesheet" href="${createLinkTo(dir:'css',file:'eventfinder.css')}"></link>
-		<g:layoutHead />
-        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-        <META HTTP-EQUIV="Expires" CONTENT="-1">
-	</head>
-	<body>
-        <div class="page">
-            <div class="pageinner constrained">
-                <g:render template="/layouts/header"/>
-        		<g:layoutBody />
-                <g:render template="/layouts/footer"/>
-            </div>
+<head>
+    <title><g:layoutTitle default="Event Finder"/></title>
+    <link rel="stylesheet" href="${createLinkTo(dir: 'css', file: 'eventfinder.css')}"/>
+    <g:layoutHead/>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
+</head>
 
-        </div> 
-      	</body>
+<body>
+<div class="page"><a id="top"></a>
+    <g:render template="/layouts/header"/>
+    <div class="pageinner constrained">
+        <div id="pageBody" class="body ">
+            <div id="sidebar" class="columnSmall">
+                <ef:widget id="upcomingEvents" title="Upcoming Events"/>
+                <ef:widget id="newTrainers" title="New Trainers"/>
+            </div>
+            <g:layoutBody/>
+            <div id="footerPlaceholder">&nbsp;</div>
+        </div>
+    </div>
+</div>
+<g:render template="/layouts/footer"/>
+
+</body>
 </html>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="test/unit"/>
-	<classpathentry excluding="DataSource.groovy" including="DataSource.groovy" kind="src" path="grails-app/conf"/>
 	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="src" path="src/groovy"/>
-	<classpathentry kind="src" path="test/integration"/>
-	<classpathentry kind="src" path="grails-app/utils"/>
-	<classpathentry kind="src" path="grails-app/taglib"/>
-	<classpathentry kind="src" path="grails-app/domain"/>
+	<classpathentry kind="src" path="grails-app/conf"/>
 	<classpathentry kind="src" path="grails-app/controllers"/>
+	<classpathentry kind="src" path="grails-app/domain"/>
 	<classpathentry kind="src" path="grails-app/services"/>
+	<classpathentry kind="src" path="grails-app/taglib"/>
+	<classpathentry kind="src" path="grails-app/utils"/>
+	<classpathentry kind="src" path="test/integration"/>
+	<classpathentry kind="src" path="test/unit"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.springsource.sts.grails.core.CLASSPATH_CONTAINER"/>
 	<classpathentry kind="src" path=".link_to_grails_plugins/avatar-0.4.1/grails-app/taglib">
@@ -87,22 +87,17 @@
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path=".link_to_grails_plugins/nimble-0.4-SNAPSHOT/src/java">
-		<attributes>
-			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="src" path=".link_to_grails_plugins/nimble-0.4-SNAPSHOT/src/groovy">
 		<attributes>
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path=".link_to_grails_plugins/scaffold-tags-0.7.3/grails-app/taglib">
+	<classpathentry kind="src" path=".link_to_grails_plugins/nimble-0.4-SNAPSHOT/src/java">
 		<attributes>
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path=".link_to_grails_plugins/scaffold-tags-0.7.3/grails-app/views">
+	<classpathentry kind="src" path=".link_to_grails_plugins/scaffold-tags-0.7.3/grails-app/taglib">
 		<attributes>
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
@@ -127,12 +122,12 @@
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path=".link_to_grails_plugins/shiro-1.0.1/src/java">
+	<classpathentry kind="src" path=".link_to_grails_plugins/shiro-1.0.1/src/groovy">
 		<attributes>
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path=".link_to_grails_plugins/shiro-1.0.1/src/groovy">
+	<classpathentry kind="src" path=".link_to_grails_plugins/shiro-1.0.1/src/java">
 		<attributes>
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
@@ -142,6 +137,5 @@
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="GROOVY_SUPPORT"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="web-app/WEB-INF/classes"/>
 </classpath>

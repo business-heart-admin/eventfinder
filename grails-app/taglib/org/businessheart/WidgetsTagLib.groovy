@@ -18,9 +18,9 @@ class WidgetsTagLib {
         }
         if (isEventsWidget) {
             out << '<ul>'
-            listItem('CI for a Dollar a Day')
-            listItem('TDD There and Back Again')
-            listItem('The Kanban Can-Can')
+			def newEvents
+			newEvents = Event.findAllByStartTimeGreaterThanEquals(new Date())
+			newEvents.each{it ->listItem(it.name)}
             out << '</ul>'
         }
         out << '</div>'

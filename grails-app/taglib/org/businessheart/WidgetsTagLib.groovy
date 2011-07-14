@@ -11,9 +11,9 @@ class WidgetsTagLib {
         out << "<div class='titleSection'><h1 class='title'>${attrs.title}</h1></div>"
         if (isTrainerWidget) {
             out << '<ul>'
-            listItem('John Q. Trainer')
-            listItem('Jane R. Instructor')
-            listItem('Jack S. Coach')
+			def newTrainers
+			newTrainers = Trainer.listOrderByDateCreated(max:3 , order:"desc") 
+			newTrainers.each{it ->listItem(it.firstName + " " + it.lastName)}
             out << '</ul>'
         }
         if (isEventsWidget) {

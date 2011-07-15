@@ -11,7 +11,7 @@ class HomeControllerTests extends ControllerUnitTestCase {
         super.tearDown()
     }
 
-    void testSomething() {
+    void testBlah() {
 
     }
 }

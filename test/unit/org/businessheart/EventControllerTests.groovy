@@ -27,7 +27,7 @@ class EventControllerTests extends ControllerUnitTestCase {
 		eventController = new EventController()
 		eventController.metaClass.message = { LinkedHashMap args -> return "${args.code}" }
 
-		trainer = new Trainer(phone: '9946555257',lastName: 'Smith',firstName: 'Joe',email: 'joe@example.com',displayGravatar: false,address1: '1 Greco',address2: '',city: 'Anytown',state: 'CA',country: 'USA',zip: '99999',organization: '',website: '',certifications: '',comments: '',keywords: '')
+		trainer = new Trainer(organization: '',website: '',certifications: '',comments: '',keywords: '')
 		venue= new Venue(name: 'Conscires',address1: '1 Greco Aisle',address2: '',city: 'Irvine',state: 'CA',country: 'USA',zip: '',contactName: '',contactPhone: '',capacity: 10,trainerComments: '',studentComments: '')
 		
 		// We'll create and save three Events here, so when the List controller calls Event.list, it will get back a list of these three, and when Show controller calls Event.get(2) it will get back the second one (Jane)

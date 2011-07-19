@@ -11,7 +11,7 @@ class Trainer {
 	Date dateCreated
 	Date lastUpdated
 
-	static belongsTo = [appUser: AppUser]
+	static belongsTo = [owner: AppUser]
 	
 	
 	static constraints = {
@@ -25,7 +25,7 @@ class Trainer {
 	}
 	
 	String toString(){
-		return "Trainer: " + appUser.toString();
+		return "Trainer: " + owner.toString();
 
 }
 

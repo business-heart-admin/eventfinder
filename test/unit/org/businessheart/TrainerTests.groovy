@@ -26,7 +26,7 @@ class TrainerTests extends GrailsUnitTestCase {
 	}
 
 	void testValidate_Good() {
-        Trainer trainer = new Trainer(organization: 'Conscires',website: 'http://example.com', certifications: 'Scrum', appUser: appUser)
+        Trainer trainer = new Trainer(organization: 'Conscires',website: 'http://example.com', certifications: 'Scrum', owner: appUser)
 		appUser.trainer = trainer
 		assertTrue trainer.validate()
 		assertFalse trainer.hasErrors()
@@ -35,14 +35,14 @@ class TrainerTests extends GrailsUnitTestCase {
 
   
 	public void testToString() throws Exception {
-		Trainer trainer = new Trainer(appUser: appUser)
+		Trainer trainer = new Trainer(owner: appUser)
 		appUser.trainer = trainer
 		assertEquals 'Trainer: joesmi',trainer.toString()
 
 	}
 
 	void testValidate_BadUrl() {
-		Trainer trainer = new Trainer(organization: '', website: 'www.conscires.com', certifications: '', comments: '', keywords: '', appUser: appUser)
+		Trainer trainer = new Trainer(organization: '', website: 'www.conscires.com', certifications: '', comments: '', keywords: '', owner: appUser)
 		appUser.trainer = trainer
 		assertFalse trainer.validate()
 		assertTrue trainer.hasErrors()

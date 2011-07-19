@@ -1,8 +1,15 @@
 
 package org.businessheart
 
-class AppUser extends grails.plugins.nimble.core.UserBase {
+import java.util.Date;
 
-	// Extend UserBase with your custom values here
+class AppUser extends grails.plugins.nimble.core.UserBase {
+	
+	Trainer trainer;
+	
+	String toString(){
+		return username;
 
 }
+	
+	}

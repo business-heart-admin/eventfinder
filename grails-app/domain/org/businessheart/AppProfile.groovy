@@ -8,7 +8,7 @@ class AppProfile extends grails.plugins.nimble.core.ProfileBase {
 	String firstName = ''
 	String lastName = ''
 	String email = ''
-	Boolean displayGravatar
+	Boolean displayGravatar = true
 	String phone = ''
 	String address1 = ''
 	String address2 = ''
@@ -24,12 +24,12 @@ class AppProfile extends grails.plugins.nimble.core.ProfileBase {
 		lastName(blank:false,minSize:3)
 		email(blank:false,email:true,unique:true)
 		displayGravatar(nullable:false)
-		phone(blank:false)
+		phone(blank:true)
 		address1(blank:true)
 		address2(blank:true)
-		city(blank:false)
-		state(blank:false)
-		country(blank:false)
+		city(blank:true)
+		state(blank:true)
+		country(blank:true)
 		zip(blank:true)
 	
 	}

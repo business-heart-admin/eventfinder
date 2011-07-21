@@ -7,6 +7,10 @@ class AppUser extends grails.plugins.nimble.core.UserBase {
 	
 	Trainer trainer;
 	
+	static constraints = {
+		trainer(nullable:true)
+	}
+	
 	String toString(){
 		return username;
 

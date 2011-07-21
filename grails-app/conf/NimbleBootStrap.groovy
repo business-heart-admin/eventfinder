@@ -44,36 +44,20 @@ class NimbleBootStrap {
 	AdminsService adminsService
 
 	def init = {servletContext ->
-
+		log.info "-" * 40
+		log.info "running nimble bootstrap"
+		log.info "-" * 40
 		// The following must be executed
-		internalBootStap(servletContext)
+		//internalBootStap(servletContext)
+
 
 		// Execute any custom Nimble related BootStrap for your application below
 
 		// Create example User account
-		
-				
+
+
 		def passwordText = CH.config.nimble.passwords.mustcontain.uppercase?"!11fdsa3jfaAdsfG8l;J":"secret"
-		
-		def user = AppUser.findByUsername("user")
-		if(!user){
-			user = InstanceGenerator.user()
-			user.username = "user"
-			user.pass = passwordText
-			user.passConfirm = passwordText
-			user.enabled = true
 
-			def userProfile = InstanceGenerator.profile()
-			userProfile.fullName = "Test User"
-			userProfile.owner = user
-			user.profile = userProfile
-
-			def savedUser = userService.createUser(user)
-			if (savedUser.hasErrors()) {
-				savedUser.errors.each { log.error(it) }
-				throw new RuntimeException("Error creating example user")
-			}
-		}
 		// Create roles for student, trainer and event coordinator
 		roleService.createRole("STUDENT", "Can signup for a class", false)
 		roleService.createRole("TRAINER", "Can create, and be trainer for, classes", false)
@@ -82,17 +66,19 @@ class NimbleBootStrap {
 
 		def admins = Role.findByName(AdminsService.ADMIN_ROLE)
 
-			def admin = AppUser.findByUsername("admin")
+		def admin = AppUser.findByUsername("admin")
 		if(!admin){
 			admin = InstanceGenerator.user()
 			admin.username = "admin"
-		
+
 			admin.pass = passwordText
 			admin.passConfirm = passwordText
 			admin.enabled = true
 
 			def adminProfile = InstanceGenerator.profile()
-			adminProfile.fullName = "Administrator"
+			adminProfile.firstName = "System"
+			adminProfile.lastName = "Administrator"
+			adminProfile.email = "admin@example.com"
 			adminProfile.owner = admin
 			admin.profile = adminProfile
 
@@ -110,7 +96,7 @@ class NimbleBootStrap {
 
 	}
 
-	private internalBootStap(def servletContext) {
-		nimbleService.init()
-	}
+	/*private internalBootStap(def servletContext) {
+	 nimbleService.init()
+	 }*/
 }

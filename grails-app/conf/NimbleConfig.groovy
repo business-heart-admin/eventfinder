@@ -20,6 +20,15 @@
 grails.views.javascript.library='jquery'
 
 nimble {
+	fields {
+		admin {
+			user = ['username', 'external', 'federated']
+		}
+		enduser {
+			user = ['username', 'pass', 'passConfirm']
+			profile = ['email','lastName','firstName','phone','displayGravatar','address1','address2','city','state','country','zip']
+		}
+	}
     organization {
         name = "businessheart.org"
         displayname = "Event Finder"
@@ -40,9 +49,9 @@ nimble {
 	}
 	
 	layout {
-        application = 'app'
+        application = 'eventfinder'
         administration = 'admin'
-		login = 'app'
+		login = 'simple'
     }
 
     resources {

@@ -22,6 +22,7 @@ class AppProfile extends grails.plugins.nimble.core.ProfileBase {
 	static constraints = {
 		firstName(blank:false,minSize:3)
 		lastName(blank:false,minSize:3)
+		fullName(blank:true)
 		email(blank:false,email:true,unique:true)
 		displayGravatar(nullable:false)
 		phone(blank:true)
@@ -33,6 +34,10 @@ class AppProfile extends grails.plugins.nimble.core.ProfileBase {
 		zip(blank:true)
 	
 	}
+	String getFullName(){
+		return firstName + " " + lastName
+		}
+	
 	String toString(){
 		return lastName + ", " + firstName + " (" + email + ")";
 

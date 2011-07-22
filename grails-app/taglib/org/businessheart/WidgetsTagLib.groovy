@@ -13,7 +13,7 @@ class WidgetsTagLib {
             out << '<ul>'
 			def newTrainers
 			newTrainers = Trainer.listOrderByDateCreated(max:3 , order:"desc") 
-			newTrainers.each{it ->listItem(it.firstName + " " + it.lastName)}
+			newTrainers.each{it ->listItem(it.owner.profile.firstName + " " + it.owner.profile.lastName)}
             out << '</ul>'
         }
         if (isEventsWidget) {

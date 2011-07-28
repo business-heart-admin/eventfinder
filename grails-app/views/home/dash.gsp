@@ -4,16 +4,33 @@
 <meta name="layout" content="eventfinder" />
 </head>
 <body>
-		<div class="columnBig">
-			<div id="aboutUs" class="widget">
+	<div class="columnBig">
+		<n:hasRole name="TRAINER">
+			<div id="myTrainerEvents" class="widget">
 				<div class="titleSection">
-					<h1 class="title">My Events</h1>
+					<h1 class="title">Events I am Teaching</h1>
+					<g:each var="event" in="trainerEvents">
+					  $event.toString()
+					</g:each>
 				</div>
-				
-			</div>
-		</div>
 
-		<div class="clear"/>
+			</div>
+		</n:hasRole>
+
+		<n:hasRole name="STUDENT">
+			<div id="myStudentEvents" class="widget">
+				<div class="titleSection">
+					<h1 class="title">Events I am Attending</h1>
+					<g:each var="event" in="studentEvents">
+					  $event.toString()
+					</g:each>
+				</div>
+
+			</div>
+		</n:hasRole>
+	</div>
+
+	<div class="clear" />
 
 </body>
 </html>

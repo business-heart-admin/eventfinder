@@ -83,6 +83,13 @@
            <g:renderProperty template="editor" domain="${user.profile.class}" prop="displayGravatar" value="${user.profile.displayGravatar}" />
           </td>
         </tr>
+        
+        <tr>
+          <td valign="top" class="name"><label for="address1"><g:message code="nimble.label.address1" /></label></td>
+          <td valign="top" class="value ${hasErrors(bean: user, field: 'profile.address1', 'errors')}">
+            <input type="text" size="30" id="address1" name="address1" value="${user.profile?.address1?.encodeAsHTML()}" class="easyinput"/> <span class="icon icon_bullet_green">&nbsp;</span>
+          </td>
+        </tr>
 
         <tr>
           <td valign="top" class="name"><label for="address2"><g:message code="nimble.label.address2" /></label></td>

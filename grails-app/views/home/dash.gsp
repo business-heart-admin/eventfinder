@@ -19,9 +19,9 @@
 			</div>
 		</n:hasRole>
 
-		<n:hasRole name="STUDENT">
+		<g:if test = "${studentEvents || isStudentOnly}">
 			<div id="myStudentEvents" class="widget">
-				<div class="titleSection">
+				<div class="titleSection"> 
 					<h1 class="title">Events I am Attending</h1>
 					<g:each var="event" in="${studentEvents}">
 					  ${event.toString()}
@@ -29,7 +29,13 @@
 				</div>
 
 			</div>
-		</n:hasRole>
+		</g:if>
+		
+		<n:lacksRole name="TRAINER">
+			<g:link controller = 'trainer' action = 'create'>Become a Trainer</g:link>
+		</n:lacksRole>
+		
+		
 	</div>
 
 	<div class="clear" />

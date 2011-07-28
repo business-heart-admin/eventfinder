@@ -21,8 +21,14 @@ class HomeController {
 	}
 	def dash = {
 		def appUser = AppUser.get(SecurityUtils.subject.principal)
-		def trainerEvents = Event.findAllByTrainer(appUser.trainer)
+		def appUserTrainer = appUser.trainer
+		def trainerEvents =[]
+		def isStudentOnly = !(SecurityUtils.subject.hasRole('TRAINER') || SecurityUtils.subject.hasRole('EVENT COORDINATOR'))
+		if(appUserTrainer)
+		{
+		trainerEvents = Event.findAllByTrainer(appUserTrainer)
+		}
 		def studentEvents = []
-		return ['trainerEvents': trainerEvents,'studentEvents':studentEvents]
+		return ['isStudentOnly': isStudentOnly,'trainerEvents': trainerEvents,'studentEvents':studentEvents]
 	}
 }

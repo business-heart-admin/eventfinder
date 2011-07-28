@@ -1,4 +1,5 @@
 package org.businessheart
+import org.apache.shiro.SecurityUtils
 
 class TrainerController {
 
@@ -16,11 +17,15 @@ class TrainerController {
     def create = {
         def trainerInstance = new Trainer()
         trainerInstance.properties = params
+		Long securityUtilsSubjectPrincipal = SecurityUtils.subject.principal
+		trainerInstance.owner = AppUser.get(securityUtilsSubjectPrincipal)
         return [trainerInstance: trainerInstance]
     }
 
     def save = {
         def trainerInstance = new Trainer(params)
+		def appUser = trainerInstance.owner
+		appUser.trainer = trainerInstance
         if (trainerInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'trainer.label', default: 'Trainer'), trainerInstance.id])}"
             redirect(action: "show", id: trainerInstance.id)

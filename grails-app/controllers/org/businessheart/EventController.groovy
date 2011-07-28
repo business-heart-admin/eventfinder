@@ -97,4 +97,4 @@ class EventController {
             redirect(action: "list")
         }
     }
-}
+	}

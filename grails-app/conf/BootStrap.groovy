@@ -7,6 +7,7 @@ import grails.plugins.nimble.core.LevelPermission
 import grails.plugins.nimble.core.Role
 import grails.plugins.nimble.core.Group
 import grails.plugins.nimble.core.AdminsService
+import grails.plugins.nimble.core.UserBase;
 import grails.plugins.nimble.core.UserService
 import org.businessheart.AppUser
 import org.businessheart.AppProfile
@@ -16,6 +17,7 @@ import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
 class BootStrap {
 	def userService
 	def nimbleService
+    def roleService
 
 	def init = { servletContext ->
 		log.info "-" * 40
@@ -27,8 +29,14 @@ class BootStrap {
 	def destroy = {
 	}
 
+	
 	def passwordText = CH.config.nimble.passwords.mustcontain.uppercase?"!11fdsa3jfaAdsfG8l;J":"secret"
 	private void sampleData(){
+		// Create roles for student, trainer and event coordinator
+		roleService.createRole("STUDENT", "Can signup for a class", false)
+		roleService.createRole("TRAINER", "Can create, and be trainer for, classes", false)
+		roleService.createRole("EVENT COORDINATOR", "Can manage classes on behalf of other trainers", false)
+		
 		AppUser joe = AppUser.findByUsername("joesmi")
 		if(!joe){
 			joe = InstanceGenerator.user()
@@ -36,7 +44,7 @@ class BootStrap {
 			joe.pass = passwordText
 			joe.passConfirm = passwordText
 			joe.enabled = true
-
+			
 			AppProfile appProfile = InstanceGenerator.profile()
 			appProfile.email = 'joe@example.com'
 			appProfile.phone = '(949) 555-1212'
@@ -57,6 +65,7 @@ class BootStrap {
 				savedUser.errors.each { log.error(it) }
 				throw new RuntimeException("Error creating joe")
 			}
+			assignRole(savedUser,"STUDENT")
 		}
 		AppUser jeremy = AppUser.findByUsername("jersmi")
 		if(!jeremy){
@@ -88,6 +97,8 @@ class BootStrap {
 				savedUser.errors.each { log.error(it) }
 				throw new RuntimeException("Error creating jeremy")
 			}
+			assignRole(savedUser,"TRAINER")
+			assignRole(savedUser,"STUDENT")
 		}
 		log.trace("Enter Sample Venue")
 		Venue venue = Venue.findByName("RC Global")
@@ -140,6 +151,43 @@ class BootStrap {
 		AppProfile appProfile = AppProfile.findByEmail(email)
 		return appProfile.owner.trainer
 	}
+	
+	def assignRole(UserBase user,String roleName) {
+		// Grant administrative role
+		def role = Role.findByName(roleName)
+
+		if (!role) {
+			log.error("Unable to locate $roleName role")
+			throw new RuntimeException("Unable to locate $roleName role")
+		}
+
+		role.addToUsers(user)
+		user.addToRoles(role)
+
+		if (!role.save()) {
+			log.error "Unable to grant $roleName role to [$user.id]$user.username"
+			role.errors.each {
+				log.error '[${user.username}] - ' + it
+			}
+
+			role.discard()
+			user.discard()
+			return false
+		}
+		else {
+			if (!user.save()) {
+				log.error "Unable to grant $roleName role to [$user.id]$user.username failed to modify user account"
+				user.errors.each {
+					log.error it
+				}
+
+				throw new RuntimeException("Unable to grant $roleName role to [$user.id]$user.username")
+			}
+
+			return true
+		}
+	}
+
 	
 	private internalBootStap(def servletContext) {
 		nimbleService.init()

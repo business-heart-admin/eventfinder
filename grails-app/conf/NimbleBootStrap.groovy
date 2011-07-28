@@ -58,10 +58,7 @@ class NimbleBootStrap {
 
 		def passwordText = CH.config.nimble.passwords.mustcontain.uppercase?"!11fdsa3jfaAdsfG8l;J":"secret"
 
-		// Create roles for student, trainer and event coordinator
-		roleService.createRole("STUDENT", "Can signup for a class", false)
-		roleService.createRole("TRAINER", "Can create, and be trainer for, classes", false)
-		roleService.createRole("EVENT COORDINATOR", "Can manage classes on behalf of other trainers", false)
+		
 		// Create example Administrative account
 
 		def admins = Role.findByName(AdminsService.ADMIN_ROLE)
